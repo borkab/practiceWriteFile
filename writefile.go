@@ -106,4 +106,31 @@ func main() {
 	fmt.Println("-------------------------------")
 	fmt.Println("-------------------------------")
 
+	//write a slice to a file
+	filewithslice, erro := os.Create("filewithslice.txt")
+
+	if erro != nil {
+		log.Fatal(erro)
+	}
+	defer filewithslice.Close()
+
+	words := []string{"borka", "will", "be", "a", "programmer"}
+
+	//we range through the slice and write all words to the file
+	for _, word := range words {
+		_, errs := filewithslice.WriteString(word + "\n")
+
+		if errs != nil {
+			log.Fatal(errs)
+		}
+
+	}
+	fmt.Println("you wrote a slice to a new file")
+
+	fmt.Println("-------------------------------")
+	fmt.Println("-------------------------------")
+
+	fmt.Println("-------------------------------")
+	fmt.Println("-------------------------------")
+
 }
