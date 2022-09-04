@@ -92,7 +92,7 @@ func main() {
 	val4 := "Adam: the turning red movie is only to buy for 13.99EUR on prime\n"
 	data4 := []byte(val4)
 
-	err7 := ioutil.WriteFile("redonprime.txt", data4, 0)
+	err7 := ioutil.WriteFile("redonprime.txt", data4, 0644)
 
 	if err7 != nil {
 		log.Fatal(err7)
