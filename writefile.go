@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 )
 
-//File.WriteString() writes the contents of a string to a file.
-
 func main() {
+	//File.WriteString() writes the contents of a string to a file.
 	fmt.Println("first practice with file.WriteString()")
 	//os.Create() creates the named file
 	file1, err := os.Create("myfirstfile.txt")
@@ -26,6 +26,10 @@ func main() {
 		log.Fatal(err2)
 	}
 	fmt.Println("You have successfully written to myfile.txt\n Check it out with cat")
+
+	fmt.Println("-------------------------------")
+	fmt.Println("-------------------------------")
+
 	fmt.Println("-------------------------------")
 	fmt.Println("-------------------------------")
 
@@ -77,6 +81,28 @@ func main() {
 		log.Fatal(err6)
 	}
 	fmt.Println("we wrote our third string to our file mysecondfile.txt\nCheck it out with cat")
+	fmt.Println("-------------------------------")
+	fmt.Println("-------------------------------")
+
+	fmt.Println("-------------------------------")
+	fmt.Println("-------------------------------")
+
+	fmt.Println("third practice with ioutil.WriteFile()")
+
+	val4 := "Adam: the turning red movie is only to buy for 13.99EUR on prime\n"
+	data4 := []byte(val4)
+
+	err7 := ioutil.WriteFile("redonprime.txt", data4, 0)
+
+	if err7 != nil {
+		log.Fatal(err7)
+	}
+
+	fmt.Println("you have successfully written to your new txt file")
+
+	fmt.Println("-------------------------------")
+	fmt.Println("-------------------------------")
+
 	fmt.Println("-------------------------------")
 	fmt.Println("-------------------------------")
 
