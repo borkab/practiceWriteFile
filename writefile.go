@@ -133,4 +133,25 @@ func main() {
 	fmt.Println("-------------------------------")
 	fmt.Println("-------------------------------")
 
+	//write formatted string to file
+	newestfile, errorka := os.Create("newestfile.txt")
+
+	if errorka != nil {
+		log.Fatal(errorka)
+	}
+	defer newestfile.Close()
+
+	//we have two variables: name and age. we build a string from them
+	//and write it to the created file.
+	const name, age = "Picachu", 31
+
+	n, errorly := fmt.Fprintln(newestfile, name, "is", age, "years old")
+
+	if errorly != nil {
+		log.Fatal(errorly)
+	}
+	fmt.Println(n, "bytes written")
+	fmt.Println("Thank you Turok!")
+	fmt.Println("-------------------------------")
+	fmt.Println("-------------------------------")
 }
